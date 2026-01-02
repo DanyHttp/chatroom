@@ -1,0 +1,715 @@
+/* تعریف فونت‌های محلی Vazir */
+@font-face {
+    font-family: 'Vazir';
+    src: url('../fonts/Vazir-Thin.woff2') format('woff2'),
+         url('../fonts/Vazir-Thin.woff') format('woff'),
+         url('../fonts/Vazir-Thin.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Vazir';
+    src: url('../fonts/Vazir-Light.woff2') format('woff2'),
+         url('../fonts/Vazir-Light.woff') format('woff'),
+         url('../fonts/Vazir-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Vazir';
+    src: url('../fonts/Vazir.woff2') format('woff2'),
+         url('../fonts/Vazir.woff') format('woff'),
+         url('../fonts/Vazir.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Vazir';
+    src: url('../fonts/Vazir-Medium.woff2') format('woff2'),
+         url('../fonts/Vazir-Medium.woff') format('woff'),
+         url('../fonts/Vazir-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Vazir';
+    src: url('../fonts/Vazir-Bold.woff2') format('woff2'),
+         url('../fonts/Vazir-Bold.woff') format('woff'),
+         url('../fonts/Vazir-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* CSS Variables - Dark Gradient Theme */
+:root {
+    --bg-gradient-start: #0A0F22;
+    --bg-gradient-end: #131A31;
+    --surface-bg: #1B2538;
+    --text-primary: #E8EAED;
+    --text-secondary: #A0A8B7;
+    --accent: #03DAC6;
+    --success: #4CAF50;
+    --warning: #FFC107;
+    --error: #F44336;
+}
+
+/* استایل‌های عمومی */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Vazir', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-primary);
+}
+
+body {
+    font-family: 'Vazir', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    direction: ltr;
+    color: var(--text-primary);
+}
+
+/* کانتینر اصلی چت */
+.chat-container {
+    width: 100%;
+    max-width: 850px;
+    height: 90vh;
+    max-height: 750px;
+    background: var(--surface-bg);
+    border-radius: 24px;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    direction: rtl;
+    margin: 0 auto;
+}
+
+/* هدر */
+.chat-header {
+    background: var(--surface-bg);
+    color: var(--text-primary);
+    padding: 24px 28px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    border-bottom: 1px solid rgba(160, 168, 183, 0.1);
+}
+
+.chat-header h1 {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+#room-info {
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+#current-room-code {
+    background: rgba(3, 218, 198, 0.15);
+    padding: 8px 18px;
+    border-radius: 25px;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(3, 218, 198, 0.3);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    color: var(--accent);
+}
+
+.btn-small {
+    padding: 8px 18px;
+    font-size: 13px;
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 20px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+}
+
+.btn-small:hover {
+    background: rgba(3, 218, 198, 0.15);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(3, 218, 198, 0.2);
+}
+
+/* فرم ورود نام کاربری */
+.username-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    padding: 50px 40px;
+}
+
+#room-selection-form {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.username-box {
+    text-align: center;
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 150px;
+}
+
+.username-box h2 {
+    color: var(--text-primary);
+    margin-bottom: 35px;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+}
+
+#username-input {
+    width: 100%;
+    padding: 16px 20px;
+    font-size: 16px;
+    border: 2px solid rgba(160, 168, 183, 0.3);
+    border-radius: 12px;
+    margin-bottom: 22px;
+    transition: all 0.2s ease;
+    font-family: 'Vazir', inherit;
+    background: var(--surface-bg);
+    color: var(--text-primary);
+}
+
+#username-input:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: var(--surface-bg);
+    box-shadow: 0 0 0 4px rgba(3, 218, 198, 0.15);
+    transform: translateY(-1px);
+}
+
+#username-input::placeholder {
+    color: var(--text-secondary);
+}
+
+/* استایل‌های فرم اتاق */
+.room-tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 28px;
+    border-bottom: 2px solid rgba(160, 168, 183, 0.2);
+    background: var(--surface-bg);
+    border-radius: 12px 12px 0 0;
+    padding: 4px;
+    width: 100%;
+    justify-content: center;
+}
+
+.room-tab {
+    flex: 1;
+    padding: 14px 20px;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+    font-family: 'Vazir', inherit;
+    font-weight: 500;
+    border-radius: 8px;
+    position: relative;
+}
+
+.room-tab:hover {
+    color: var(--accent);
+    background: rgba(3, 218, 198, 0.1);
+}
+
+.room-tab.active {
+    color: var(--accent);
+    background: rgba(3, 218, 198, 0.15);
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.room-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--accent);
+    border-radius: 3px 3px 0 0;
+}
+
+.room-section {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: center;
+    width: 100%;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    align-items: center;
+}
+
+.form-group label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 15px;
+    color: var(--text-primary);
+    cursor: pointer;
+    font-weight: 500;
+    user-select: none;
+    width: 100%;
+}
+
+.form-group input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--accent);
+}
+
+.form-group input[type="text"] {
+    width: 100%;
+    padding: 16px 20px;
+    font-size: 16px;
+    border: 2px solid rgba(160, 168, 183, 0.3);
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    font-family: 'Vazir', inherit;
+    background: var(--surface-bg);
+    color: var(--text-primary);
+}
+
+.form-group input[type="text"]:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: var(--surface-bg);
+    box-shadow: 0 0 0 4px rgba(3, 218, 198, 0.15);
+    transform: translateY(-1px);
+}
+
+.form-group input[type="text"]::placeholder {
+    color: var(--text-secondary);
+}
+
+.form-group select,
+.form-select {
+    width: 100%;
+    padding: 16px 20px;
+    font-size: 16px;
+    border: 2px solid rgba(160, 168, 183, 0.3);
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    font-family: 'Vazir', inherit;
+    background: var(--surface-bg);
+    color: var(--text-primary);
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2303DAC6' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: left 20px center;
+    padding-left: 50px;
+    direction: rtl;
+}
+
+.form-group select:focus,
+.form-select:focus {
+    border-color: var(--accent);
+    background-color: var(--surface-bg);
+    box-shadow: 0 0 0 4px rgba(3, 218, 198, 0.15);
+}
+
+.form-group select:hover,
+.form-select:hover {
+    border-color: rgba(160, 168, 183, 0.5);
+    background-color: var(--surface-bg);
+}
+
+.form-group input[type="number"],
+.form-input {
+    width: 100%;
+    padding: 16px 20px;
+    font-size: 16px;
+    border: 2px solid rgba(160, 168, 183, 0.3);
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    font-family: 'Vazir', inherit;
+    background: var(--surface-bg);
+    color: var(--text-primary);
+    outline: none;
+}
+
+.form-group input[type="number"]:focus,
+.form-input:focus {
+    border-color: var(--accent);
+    background-color: var(--surface-bg);
+    box-shadow: 0 0 0 4px rgba(3, 218, 198, 0.15);
+    transform: translateY(-1px);
+}
+
+.form-group input[type="number"]:hover,
+.form-input:hover {
+    border-color: rgba(160, 168, 183, 0.5);
+    background-color: var(--surface-bg);
+}
+
+.form-group small {
+    display: block;
+    margin-top: 5px;
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+/* دکمه‌ها */
+.btn {
+    padding: 14px 32px;
+    font-size: 16px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Vazir', inherit;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: var(--bg-gradient-start);
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(3, 218, 198, 0.3);
+}
+
+.btn-primary:hover {
+    background: #04C7B3;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(3, 218, 198, 0.4);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(3, 218, 198, 0.3);
+}
+
+.btn-send {
+    background: var(--accent);
+    color: var(--bg-gradient-start);
+    padding: 14px 28px;
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(3, 218, 198, 0.3);
+    font-weight: 600;
+}
+
+.btn-send:hover {
+    background: #04C7B3;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(3, 218, 198, 0.4);
+}
+
+.btn-send:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* بخش چت */
+.chat-section {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* کانتینر پیام‌ها */
+.messages-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px;
+    background: var(--bg-gradient-start);
+}
+
+.messages-container::-webkit-scrollbar {
+    width: 10px;
+}
+
+.messages-container::-webkit-scrollbar-track {
+    background: var(--surface-bg);
+    border-radius: 10px;
+}
+
+.messages-container::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 10px;
+}
+
+.messages-container::-webkit-scrollbar-thumb:hover {
+    background: #04C7B3;
+}
+
+.messages-loading {
+    text-align: center;
+    color: var(--text-secondary);
+    padding: 30px 20px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* پیام */
+.message {
+    margin-bottom: 18px;
+    animation: fadeIn 0.4s ease-out;
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.message-content {
+    display: inline-block;
+    max-width: 75%;
+    padding: 14px 18px;
+    border-radius: 20px;
+    word-wrap: break-word;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.message.sent {
+    align-items: flex-end;
+}
+
+.message.received {
+    align-items: flex-start;
+}
+
+.message.sent .message-content {
+    background: rgba(3, 218, 198, 0.2);
+    color: var(--text-primary);
+    border-bottom-right-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(3, 218, 198, 0.3);
+}
+
+.message.received .message-content {
+    background: var(--surface-bg);
+    color: var(--text-primary);
+    border-bottom-left-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(160, 168, 183, 0.2);
+}
+
+.message-header {
+    font-size: 13px;
+    margin-bottom: 6px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+}
+
+.message.sent .message-header {
+    text-align: right;
+    color: var(--text-primary);
+}
+
+.message.received .message-header {
+    text-align: left;
+    color: var(--text-secondary);
+}
+
+.message-text {
+    font-size: 15.5px;
+    line-height: 1.6;
+    word-break: break-word;
+    font-weight: 400;
+}
+
+.message-time {
+    font-size: 11.5px;
+    opacity: 0.75;
+    margin-top: 6px;
+    display: block;
+    font-weight: 500;
+}
+
+.message.sent .message-time {
+    color: var(--text-secondary);
+}
+
+.message.received .message-time {
+    color: var(--text-secondary);
+}
+
+/* فرم ارسال پیام */
+.message-form-container {
+    background: var(--surface-bg);
+    padding: 18px 24px;
+    border-top: 1px solid rgba(160, 168, 183, 0.2);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.sender-info {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.message-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group {
+    display: flex;
+    gap: 12px;
+    align-items: flex-end;
+}
+
+#message-input {
+    flex: 1;
+    padding: 14px 18px;
+    font-size: 15.5px;
+    border: 2px solid rgba(160, 168, 183, 0.3);
+    border-radius: 16px;
+    resize: none;
+    font-family: 'Vazir', inherit;
+    transition: all 0.2s ease;
+    min-height: 52px;
+    max-height: 120px;
+    background: var(--surface-bg);
+    color: var(--text-primary);
+    line-height: 1.5;
+}
+
+#message-input:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: var(--surface-bg);
+    box-shadow: 0 0 0 4px rgba(3, 218, 198, 0.15);
+}
+
+#message-input::placeholder {
+    color: var(--text-secondary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    body {
+        padding: 0;
+    }
+
+    .chat-container {
+        height: 100vh;
+        max-height: 100vh;
+        border-radius: 0;
+        max-width: 100%;
+    }
+
+    .message-content {
+        max-width: 85%;
+    }
+
+    .chat-header {
+        padding: 20px 16px;
+    }
+
+    .chat-header h1 {
+        font-size: 22px;
+    }
+
+    .username-form {
+        padding: 30px 20px;
+    }
+
+    .messages-container {
+        padding: 16px;
+    }
+
+    .message-form-container {
+        padding: 14px 16px;
+    }
+}
+
+/* حالت خالی */
+.empty-messages {
+    text-align: center;
+    color: var(--text-secondary);
+    padding: 50px 20px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* بهبود انیمیشن‌ها */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.room-section {
+    animation: slideIn 0.3s ease-out;
+}
+
+/* بهبود focus states */
+*:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* بهبود hover effects */
+input:hover:not(:focus) {
+    border-color: rgba(160, 168, 183, 0.5);
+}

@@ -1,0 +1,68 @@
+# فایل‌های حساس و تنظیمات
+config/.encryption_key
+config/database.php
+
+# فایل‌های Log
+*.log
+logs/
+*.log.*
+
+# فایل‌های موقت
+*.tmp
+*.temp
+*.cache
+.cache/
+
+# فایل‌های IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# فایل‌های OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# فایل‌های PHP
+vendor/
+composer.phar
+composer.lock
+
+# فایل‌های Node.js (اگر در آینده اضافه شود)
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# فایل‌های Build
+dist/
+build/
+*.min.js
+*.min.css
+
+# فایل‌های Backup
+*.bak
+*.backup
+*~
+
+# فایل‌های Environment
+.env
+.env.local
+.env.*.local
+
+# فایل‌های Upload (اگر در آینده اضافه شود)
+uploads/
+files/
